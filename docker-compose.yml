@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: thapartyres-app
+
+    ports:
+      - "9090:8080"
+
+    environment:
+      MONGO_URI: mongodb+srv://hnpsbindra_db_user:OtjlvOvNdDf4tM0P@cluster0.ferjbjq.mongodb.net/thapar_on_wheels
+      MAIL_USERNAME: aa004b001@smtp-brevo.com
+      MAIL_PASSWORD: bskTZzqzcs1I3bN
