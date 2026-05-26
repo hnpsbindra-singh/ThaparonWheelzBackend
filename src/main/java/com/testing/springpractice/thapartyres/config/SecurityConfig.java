@@ -86,39 +86,37 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
+public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration config = new CorsConfiguration();
+    CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
+    config.setAllowedOriginPatterns(List.of(
+            "http://localhost:5173",
             "https://thapar-on-wheelz.vercel.app"
-        ));
+    ));
 
-        config.setAllowedMethods(List.of(
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE",
-                "OPTIONS"
-        ));
+    config.setAllowedMethods(List.of(
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE",
+            "PATCH",
+            "OPTIONS"
+    ));
 
-        config.setAllowedHeaders(List.of(
-                "Authorization",
-                "Content-Type"
-        ));
+    config.setAllowedHeaders(List.of("*"));
 
-        config.setExposedHeaders(List.of(
-                "Authorization"
-        ));
+    config.setExposedHeaders(List.of(
+            "Authorization"
+    ));
 
-        config.setAllowCredentials(true);
+    config.setAllowCredentials(true);
 
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
+    UrlBasedCorsConfigurationSource source =
+            new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**", config);
+    source.registerCorsConfiguration("/**", config);
 
-        return source;
-    }
+    return source;
+}
 }
