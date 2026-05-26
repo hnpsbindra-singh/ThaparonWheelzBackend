@@ -36,7 +36,7 @@ public class AuthController {
     @PostMapping("/send-otp")
     public String send(@RequestParam String username){
         try {
-    emailService.sendRestotp(username, otp);}\
+    emailService.sendRestotp(username, otp);}
         catch (Exception e) {
     e.printStackTrace();
 }
