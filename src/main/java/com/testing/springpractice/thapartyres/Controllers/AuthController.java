@@ -33,15 +33,20 @@ public class AuthController {
 
     }
 
-    @PostMapping("/send-otp")
-    public String send(@RequestParam String username){
-        try {
-    emailService.sendRestotp(username, otp);}
-        catch (Exception e) {
-    e.printStackTrace();
-}
-        return "Success";
+@PostMapping("/send-otp")
+public String send(@RequestParam String username){
+
+    try {
+
+        authService.send(username);
+
+    } catch (Exception e){
+
+        e.printStackTrace();
     }
+
+    return "Success";
+}
 
     @PostMapping("/verify-otp")
     public String verify(@RequestParam String username, @RequestBody long otp) {
