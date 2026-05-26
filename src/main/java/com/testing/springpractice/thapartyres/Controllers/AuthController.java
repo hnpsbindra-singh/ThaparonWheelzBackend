@@ -28,7 +28,7 @@ public class AuthController {
     @PostMapping("/register")
     public RegisterResponse register(@RequestBody RegisterRequest request){
         RegisterResponse response = authService.register(request);
-        mailSender.sendWelcome(request.getUsername(), request.getName());
+        //mailSender.sendWelcome(request.getUsername(), request.getName());
         return response;
 
     }
